@@ -43,7 +43,10 @@ namespace WebAPISample
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseDeveloperExceptionPage();
+
             app.UseMvc();
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
