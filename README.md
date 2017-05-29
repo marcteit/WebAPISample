@@ -9,5 +9,5 @@ docker build -t webapisample .
 ```
 - Run the container
 ```
-docker run -d -p 8000:80 --name WebAPISample webapisample
+docker run -d -p 8000:80 --name WebAPISample -e "MyValue=HelloContainer" webapisample
 ```
