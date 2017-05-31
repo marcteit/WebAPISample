@@ -1,4 +1,4 @@
-namespace WebAPISample
+namespace Domain
 {
     public class ApplicationSettings
     {

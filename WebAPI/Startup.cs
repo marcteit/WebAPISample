@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Rewrite;
@@ -10,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace WebAPISample
+namespace WebAPI
 {
     public class Startup
     {
@@ -30,6 +31,7 @@ namespace WebAPISample
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<ApplicationSettings>(Configuration);
+            services.AddScoped<SampleBusinessLogic>();
             services.AddMvc();
             services.AddCors();
             services.AddSwaggerGen(c =>
@@ -45,12 +47,7 @@ namespace WebAPISample
             loggerFactory.AddDebug();
 
             app.UseCors("*");
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
+            app.UseDeveloperExceptionPage();
             app.UseMvc();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
