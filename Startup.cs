@@ -29,10 +29,8 @@ namespace WebAPISample
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<ApplicationSettings>(Configuration);
-
-            // Add framework services.
             services.AddMvc();
-
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
@@ -45,10 +43,14 @@ namespace WebAPISample
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseDeveloperExceptionPage();
+            app.UseCors("*");
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
             app.UseMvc();
-
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
