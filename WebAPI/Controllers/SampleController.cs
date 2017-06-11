@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public Dictionary<string, string> Get()
         {
             return _SampleBusinessLogic.Get();
         }

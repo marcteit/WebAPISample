@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataAccess;
 using Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +32,7 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<ApplicationSettings>(Configuration);
+            services.AddScoped<ISampleDataAccess, SampleDataAccess>();
             services.AddScoped<SampleBusinessLogic>();
             services.AddMvc();
             services.AddCors();
