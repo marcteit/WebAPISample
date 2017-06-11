@@ -17,7 +17,8 @@ namespace DataAccess
 
         public int GetCount()
         {
-            IDbConnection dbConnection = new MySqlConnection(_ApplicationSettings.ConnectionString);
+            string connectionString = _ApplicationSettings.DatabaseConnection.GetConnectionString();
+            IDbConnection dbConnection = new MySqlConnection(connectionString);
             try
             {
                 dbConnection.Open();
