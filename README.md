@@ -1,5 +1,7 @@
+## Container
+
 ### Run in container
-- Publish de application
+- Publish the application
 ```
 dotnet publish
 ```
@@ -23,4 +25,14 @@ docker network create foo
 - Connect the containers to the network
 ```
 docker network connect foo WebAPISample
+```
+
+## Serverless
+- Build the solution
+```
+./build.sh
+```
+- Deploy the application
+```
+sls deploy
 ```

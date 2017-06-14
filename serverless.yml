@@ -1,0 +1,19 @@
+service: WebAPISample
+
+provider:
+  name: aws
+  runtime: dotnetcore1.0
+
+  stage: dev
+  region: us-east-1
+
+package:
+  artifact: Serverless/bin/Release/netstandard1.6/publish/deploy-package.zip
+
+functions:
+  get:
+    handler: Serverless::Serverless.SampleHandler::Get
+    events:
+      - http:
+          path: foo
+          method: get
