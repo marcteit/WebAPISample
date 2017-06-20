@@ -17,3 +17,4 @@ functions:
       - http:
           path: foo
           method: get
+          integration: LAMBDA
