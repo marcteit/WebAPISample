@@ -8,13 +8,12 @@ provider:
   region: us-east-1
 
 package:
-  artifact: Serverless/bin/Release/netstandard1.6/publish/deploy-package.zip
+  artifact: WebAPI/bin/Release/netcoreapp1.0/publish/deploy-package.zip
 
 functions:
-  get:
-    handler: Serverless::Serverless.SampleHandler::Get
+  WebAPI:
+    handler: WebAPI::WebAPI.LambdaFunction::FunctionHandlerAsync
     events:
       - http:
-          path: foo
-          method: get
-          integration: LAMBDA
+          path: /{proxy+}
+          method: any
