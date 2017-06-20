@@ -1,10 +1,6 @@
-#!/bin/bash
-
-#build handlers
 dotnet restore
-dotnet publish -c release
+dotnet publish -o bin/Publish
 
-#create deployment package
-pushd WebAPI/bin/release/netcoreapp1.0/publish
+pushd WebAPI/bin/Publish
 zip -r ./deploy-package.zip ./*
 popd

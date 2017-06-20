@@ -1,17 +1,31 @@
+WebAPISample
+------------
+
+# Build
+```
+./build.sh
+```
+
+# Run
+## Self-hosted
+
+### Debug in Visual Studio Code
+- Change the WebAPI target framework at ```WebAPI/WebAPI.csproj``` to ```netcoreapp1.1```.
+- Change the WebAPI dll path at ```.vscode/launch.json```.
+- Hit ```F5```.
+
+### Command line
+```
+dotnet run -p WebAPI/WebAPI.csproj
+```
+
 ## Container
 
 ### Run in container
-- Publish the application
+- Change the WebAPI target framework at ```WebAPI/WebAPI.csproj``` to ```netcoreapp1.1```.
+- Run the docker script
 ```
-dotnet publish
-```
-- Build the container image
-```
-docker build -t webapisample .
-```
-- Run the container
-```
-docker run -d -p 8000:80 --name WebAPISample -e "MyValue=HelloContainer" -e "DatabaseConnection__Server=controlerepresentante" -e "DatabaseConnection__Port=3306" --network foo webapisample
+./docker.sh
 ```
 
 ### Connecting Containers
@@ -28,11 +42,8 @@ docker network connect foo WebAPISample
 ```
 
 ## Serverless
-- Build the solution
-```
-./build.sh
-```
-- Deploy the application
+- Change the WebAPI target framework at ```WebAPI/WebAPI.csproj``` to ```netcoreapp1.0```.
+- Deploy using Serverless
 ```
 sls deploy
 ```

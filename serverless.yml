@@ -8,7 +8,7 @@ provider:
   region: us-east-1
 
 package:
-  artifact: WebAPI/bin/Release/netcoreapp1.0/publish/deploy-package.zip
+  artifact: WebAPI/bin/Publish/deploy-package.zip
 
 functions:
   WebAPI:
