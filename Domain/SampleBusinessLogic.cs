@@ -21,7 +21,8 @@ namespace Domain
             {
                 { "Constant Values", "a, b, c" },
                 { "ApplicationSettings.MyValue", _ApplicationSettings.MyValue },
-                { "From Database", _SampleDataAccess.GetCount().ToString() }
+                { "From Database", _SampleDataAccess.GetCount().ToString() },
+		{ "Machine Name", Environment.MachineName }
             };
         }
     }
